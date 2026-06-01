@@ -1,0 +1,656 @@
+/* =============================================
+   SPK Pemilihan Sekolah & Beasiswa - style.css
+   ============================================= */
+
+/* ---- Font & Base ---- */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f7f5;
+  color: #1a1a1a;
+  min-height: 100vh;
+}
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #63bdf8 0%, #f4fbff 45%, #fff 100%);
+}
+
+.login-screen {
+  width: 100%;
+  max-width: 1180px;
+  display: grid;
+  grid-template-columns: minmax(320px, 420px) minmax(380px, 1fr);
+  gap: 2.2rem;
+  align-items: center;
+}
+
+.login-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.brand-block {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  background: #fff;
+  color: #1D9E75;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 1.15rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.brand-label {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.brand-tag {
+  margin: 0.2rem 0 0;
+  font-size: 0.9rem;
+  color: #556a7a;
+}
+
+.login-card {
+  background: #ffffff;
+  border-radius: 32px;
+  border: 1px solid rgba(29, 158, 117, 0.12);
+  box-shadow: 0 24px 60px rgba(47, 96, 143, 0.12);
+  padding: 2.5rem;
+}
+
+.login-card-header h1 {
+  margin: 0;
+  font-size: 2.3rem;
+  line-height: 1.05;
+  color: #0f3254;
+}
+
+.login-card-header p {
+  margin: 1rem 0 0;
+  color: #5f7c8b;
+  line-height: 1.7;
+}
+
+.login-card form {
+  margin-top: 2rem;
+}
+
+.login-card .form-control {
+  border-radius: 18px;
+  border: 1px solid #dfe7ed;
+  padding: 1rem 1.1rem;
+  height: 56px;
+  box-shadow: none;
+}
+
+.login-card .btn-login {
+  margin-top: 0.5rem;
+  background: #ff8b3c;
+  border-color: #ff8b3c;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 18px;
+  padding: 0.95rem 1rem;
+}
+
+.login-card .btn-login:hover {
+  background: #ff7422;
+  border-color: #ff7422;
+}
+
+.forgot-link {
+  color: #1d9e75;
+  text-decoration: none;
+  font-size: 0.92rem;
+}
+
+.auth-switch {
+  font-size: 0.95rem;
+  color: #556a7a;
+}
+
+.auth-switch a {
+  color: #1d9e75;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}
+
+.login-error {
+  display: none;
+  margin-bottom: 1rem;
+  color: #c72f2f;
+  background: rgba(199, 47, 47, 0.08);
+  border: 1px solid rgba(199, 47, 47, 0.16);
+  border-radius: 14px;
+  padding: 0.95rem 1rem;
+  font-size: 0.93rem;
+}
+
+.login-error.login-success {
+  color: #176f2a;
+  background: rgba(23, 111, 42, 0.08);
+  border-color: rgba(23, 111, 42, 0.16);
+}
+
+.divider-row {
+  margin: 2rem 0 1rem;
+  text-align: center;
+  color: #8292a0;
+  font-size: 0.92rem;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 0.85rem;
+  justify-content: center;
+  margin-bottom: 1.4rem;
+}
+
+.social-btn {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  border: 1px solid #e4ebf2;
+  background: #fff;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #1d3c63;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.social-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(31, 63, 96, 0.12);
+}
+
+.social-google {
+  color: #d93f3f;
+}
+
+.social-facebook {
+  color: #2461b8;
+}
+
+.social-apple {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.signup-text {
+  text-align: center;
+  color: #697d8f;
+  margin: 0;
+}
+
+.signup-text a {
+  color: #1d9e75;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.hero-panel {
+  position: relative;
+  min-height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.5rem;
+  border-radius: 40px;
+  background: linear-gradient(180deg, #ffffff 0%, #d9f2ff 40%, #c0ecff 100%);
+  overflow: hidden;
+}
+
+.hero-panel::before,
+.hero-panel::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.45;
+}
+
+.hero-panel::before {
+  width: 200px;
+  height: 200px;
+  top: -40px;
+  right: -40px;
+  background: rgba(29, 158, 117, 0.12);
+}
+
+.hero-panel::after {
+  width: 130px;
+  height: 130px;
+  bottom: -40px;
+  left: -30px;
+  background: rgba(255, 139, 60, 0.14);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  background: #1d9e75;
+  color: #fff;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  width: fit-content;
+}
+
+.hero-heading {
+  margin: 1.5rem 0 1rem;
+  font-size: 3rem;
+  line-height: 1.02;
+  color: #134159;
+}
+
+.hero-copy {
+  max-width: 420px;
+  margin: 0;
+  color: #42617a;
+  line-height: 1.8;
+}
+
+.hero-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2.2rem;
+}
+
+.hero-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 1.2rem 1.3rem;
+  box-shadow: 0 18px 45px rgba(15, 55, 91, 0.09);
+  border: 1px solid rgba(29, 158, 117, 0.08);
+}
+
+.hero-card p {
+  margin: 0;
+  font-weight: 700;
+  color: #18405e;
+}
+
+.hero-card-a { background: rgba(255, 255, 255, 0.95); }
+.hero-card-b { background: rgba(255, 255, 255, 0.95); }
+.hero-card-c { grid-column: span 2; background: rgba(255, 255, 255, 0.95); }
+
+.hero-dots {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  bottom: 24px;
+  right: 24px;
+  background: radial-gradient(circle, rgba(29,158,117,0.18) 0%, transparent 70%);
+}
+
+@media (max-width: 960px) {
+  .login-screen {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-panel {
+    min-height: 420px;
+  }
+}
+
+/* ---- Header ---- */
+.app-header {
+  background: #1D9E75;
+  color: #fff;
+  padding: 2rem 0 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.app-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0.25rem 0;
+}
+
+.app-header p {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  margin: 0;
+}
+
+.badge-metode {
+  display: inline-block;
+  background: rgba(255,255,255,0.25);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 12px;
+  border-radius: 20px;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ---- Info Box ---- */
+.info-box {
+  background: #E1F5EE;
+  border-left: 4px solid #1D9E75;
+  border-radius: 6px;
+  padding: 0.85rem 1.1rem;
+  font-size: 0.9rem;
+  color: #0F6E56;
+  margin-bottom: 1.75rem;
+}
+
+/* ---- Card Section ---- */
+.card-section {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e2e8e5;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.section-header h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+.step-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #1D9E75;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.section-desc {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-bottom: 1rem;
+}
+
+/* ---- Tabel ---- */
+.table th {
+  background: #f8faf9;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #495057;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.table td {
+  font-size: 0.88rem;
+  vertical-align: middle;
+}
+
+/* Input di dalam tabel */
+.table input[type="text"],
+.table input[type="number"] {
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 0.85rem;
+  width: 100%;
+  background: #fff;
+  transition: border-color .15s;
+}
+
+.table input[type="text"]:focus,
+.table input[type="number"]:focus {
+  outline: none;
+  border-color: #1D9E75;
+  box-shadow: 0 0 0 2px rgba(29,158,117,0.15);
+}
+
+/* Slider bobot */
+.slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.slider-wrap input[type="range"] {
+  flex: 1;
+  accent-color: #1D9E75;
+  cursor: pointer;
+}
+
+.slider-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #1D9E75;
+  min-width: 36px;
+  text-align: right;
+}
+
+/* Tombol tipe benefit/cost */
+.tipe-btn {
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid #ced4da;
+  background: transparent;
+  cursor: pointer;
+  color: #6c757d;
+  transition: all .15s;
+}
+
+.tipe-btn.aktif-benefit {
+  background: #E1F5EE;
+  color: #0F6E56;
+  border-color: #5DCAA5;
+  font-weight: 600;
+}
+
+.tipe-btn.aktif-cost {
+  background: #fff3cd;
+  color: #856404;
+  border-color: #ffc107;
+  font-weight: 600;
+}
+
+/* Tombol hapus */
+.btn-hapus {
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid #f1aeb5;
+  background: transparent;
+  color: #dc3545;
+  cursor: pointer;
+  transition: all .15s;
+}
+
+.btn-hapus:hover {
+  background: #f8d7da;
+}
+
+/* ---- Tombol Hitung ---- */
+.btn-hitung {
+  background: #1D9E75;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: background .15s, transform .1s;
+}
+
+.btn-hitung:hover {
+  background: #0F6E56;
+}
+
+.btn-hitung:active {
+  transform: scale(0.97);
+}
+
+/* ---- Hasil Perankingan ---- */
+.hasil-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  transition: all .2s;
+}
+
+.hasil-item.rank-1 {
+  background: #EAF3DE;
+  border: 1px solid #C0DD97;
+}
+
+.hasil-item.rank-lain {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+}
+
+.rank-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.rank-1 .rank-circle {
+  background: #639922;
+  color: #fff;
+}
+
+.rank-lain .rank-circle {
+  background: #dee2e6;
+  color: #495057;
+}
+
+.hasil-nama {
+  font-weight: 600;
+  font-size: 0.95rem;
+  min-width: 140px;
+  color: #1a1a1a;
+}
+
+.bar-container {
+  flex: 1;
+  height: 10px;
+  background: #dee2e6;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.bar-isi {
+  height: 100%;
+  border-radius: 5px;
+  transition: width .5s ease;
+}
+
+.rank-1 .bar-isi   { background: #639922; }
+.rank-lain .bar-isi { background: #adb5bd; }
+
+.hasil-skor {
+  font-size: 0.9rem;
+  font-weight: 700;
+  min-width: 42px;
+  text-align: right;
+  color: #1a1a1a;
+}
+
+/* Label pemenang */
+.label-terbaik {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 9px;
+  border-radius: 20px;
+  background: #639922;
+  color: #fff;
+  margin-left: 6px;
+}
+
+/* ---- Footer ---- */
+.app-footer {
+  background: #1a1a1a;
+  color: #adb5bd;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.8rem;
+  margin-top: 3rem;
+}
+
+/* ---- Main Content spacing ---- */
+.main-content {
+  padding-bottom: 2rem;
+}
+
+/* ---- Login Section ---- */
+.auth-page {
+  min-height: calc(100vh - 2rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0 2rem;
+}
+.login-section {
+  border-left: 4px solid #1D9E75;
+}
+.login-section .form-control {
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+}
+.login-section .btn-primary {
+  background: #1D9E75;
+  border-color: #1D9E75;
+}
+.login-section .btn-primary:hover {
+  background: #13835a;
+  border-color: #13835a;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 576px) {
+  .app-header h1 { font-size: 1.3rem; }
+  .card-section { padding: 1rem; }
+  .hasil-nama { min-width: 90px; font-size: 0.82rem; }
+  .btn-hitung { padding: 10px 28px; font-size: 0.9rem; }
+}
