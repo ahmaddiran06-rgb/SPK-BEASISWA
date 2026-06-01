@@ -193,6 +193,25 @@ function showApp() {
   renderAlternatif();
 }
 
+async function handleLogout() {
+  try {
+    const { error } = await db.auth.signOut();
+    if (error) {
+      console.error('❌ Supabase signOut error:', error.message);
+    }
+  } catch (error) {
+    console.error('❌ Logout failed:', error);
+  }
+
+  document.getElementById('appContent').classList.add('d-none');
+  document.getElementById('loginPage').classList.remove('d-none');
+  showLoginForm();
+  clearLoginError();
+  clearRegisterError();
+  document.getElementById('login-email').value = '';
+  document.getElementById('login-password').value = '';
+}
+
 function showRegisterForm(event) {
   if (event) event.preventDefault();
   document.getElementById('loginForm').classList.add('d-none');
