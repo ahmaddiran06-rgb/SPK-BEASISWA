@@ -32,6 +32,8 @@ let alternatif = [
   { nama: 'Univ. Brawijaya',  nilai: [75, 10000000, 15000000, 20, 80], lokasi: 'Malang, Indonesia' }
 ];
 
+let clockIntervalId = null;
+
 const usernameAliases = {
   admin: 'admin@scholarpath.com',
   user: 'user@domain.com'
@@ -208,6 +210,26 @@ function showApp() {
   clearRegisterError();
   renderKriteria();
   renderAlternatif();
+  startClock();
+}
+
+function updateClock() {
+  const dateEl = document.getElementById('clock-date');
+  const timeEl = document.getElementById('clock-time');
+  if (!dateEl || !timeEl) return;
+
+  const now = new Date();
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  dateEl.textContent = `🗓️ ${new Intl.DateTimeFormat('id-ID', options).format(now)}`;
+  timeEl.textContent = `⏰ ${now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' })}`;
+}
+
+function startClock() {
+  if (clockIntervalId) {
+    clearInterval(clockIntervalId);
+  }
+  updateClock();
+  clockIntervalId = setInterval(updateClock, 1000);
 }
 
 async function handleLogout() {
@@ -222,6 +244,10 @@ async function handleLogout() {
 
   document.getElementById('appContent').classList.add('d-none');
   document.getElementById('loginPage').classList.remove('d-none');
+  if (clockIntervalId) {
+    clearInterval(clockIntervalId);
+    clockIntervalId = null;
+  }
   showLoginForm();
   clearLoginError();
   clearRegisterError();

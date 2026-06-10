@@ -348,6 +348,36 @@ body {
   text-transform: uppercase;
 }
 
+.clock-widget {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.28);
+  border-radius: 14px;
+  padding: 0.7rem 0.9rem;
+  min-width: 190px;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.clock-date,
+.clock-time {
+  line-height: 1.3;
+}
+
+.clock-time {
+  font-weight: 700;
+  margin-top: 0.2rem;
+}
+
+@media (max-width: 720px) {
+  .clock-widget {
+    min-width: auto;
+    width: 100%;
+  }
+}
+
 /* ---- Info Box ---- */
 .info-box {
   background: #E1F5EE;
