@@ -26,10 +26,10 @@ let kriteria = [
 ];
 
 let alternatif = [
-  { nama: 'Univ. Indonesia',  nilai: [85, 15000000, 20000000, 10, 90] },
-  { nama: 'Univ. Gadjah Mada',nilai: [80, 12000000, 18000000, 30, 88] },
-  { nama: 'Beasiswa LPDP',    nilai: [90,         0, 25000000, 50, 95] },
-  { nama: 'Univ. Brawijaya',  nilai: [75, 10000000, 15000000, 20, 80] }
+  { nama: 'Univ. Indonesia',  nilai: [85, 15000000, 20000000, 10, 90], lokasi: 'Jakarta, Indonesia' },
+  { nama: 'Univ. Gadjah Mada',nilai: [80, 12000000, 18000000, 30, 88], lokasi: 'Yogyakarta, Indonesia' },
+  { nama: 'Beasiswa LPDP',    nilai: [90,         0, 25000000, 50, 95], lokasi: 'Jakarta, Indonesia' },
+  { nama: 'Univ. Brawijaya',  nilai: [75, 10000000, 15000000, 20, 80], lokasi: 'Malang, Indonesia' }
 ];
 
 const usernameAliases = {
@@ -101,6 +101,7 @@ function renderAlternatif() {
   thead.innerHTML = `
     <tr>
       <th style="min-width:140px">Nama Pilihan</th>
+      <th style="min-width:180px">Lokasi Sekolah</th>
       ${kriteria.map(k => `<th style="min-width:100px">${k.nama}</th>`).join('')}
       <th style="width:60px">Hapus</th>
     </tr>
@@ -117,6 +118,12 @@ function renderAlternatif() {
         <input type="text" value="${a.nama}"
           onchange="alternatif[${i}].nama = this.value"
           style="min-width:130px" />
+      </td>
+      <td>
+        <input type="text" value="${a.lokasi || ''}"
+          onchange="alternatif[${i}].lokasi = this.value"
+          placeholder="Alamat / kota"
+          style="min-width:180px" />
       </td>
       ${kriteria.map((k, j) => `
         <td>
@@ -316,6 +323,7 @@ function setTipe(i, tipe) {
 function tambahAlternatif() {
   alternatif.push({
     nama: 'Pilihan ' + (alternatif.length + 1),
+    lokasi: '',
     nilai: kriteria.map(() => 0)
   });
   renderAlternatif();
@@ -367,6 +375,7 @@ function hitung() {
   // --- Hitung skor akhir tiap alternatif ---
   const skor = matriksNormal.map((baris, i) => ({
     nama  : alternatif[i].nama,
+    lokasi: alternatif[i].lokasi,
     skor  : baris.reduce((total, val, j) => total + val * bobotNormal[j], 0),
     baris : baris // simpan untuk tabel normalisasi
   }));
@@ -387,10 +396,11 @@ function bacaNilaiDariInput() {
   rows.forEach((tr, i) => {
     if (!alternatif[i]) return;
     const inputs = tr.querySelectorAll('input');
-    // inputs[0] = nama, inputs[1..n] = nilai kriteria
+    // inputs[0] = nama, inputs[1] = lokasi, inputs[2..] = nilai kriteria
     alternatif[i].nama = inputs[0].value;
+    alternatif[i].lokasi = inputs[1].value;
     kriteria.forEach((_, j) => {
-      alternatif[i].nilai[j] = parseFloat(inputs[j + 1]?.value) || 0;
+      alternatif[i].nilai[j] = parseFloat(inputs[j + 2]?.value) || 0;
     });
   });
 }
@@ -409,6 +419,10 @@ function tampilkanHasil(skorSorted) {
     const skorTeks = (item.skor * 100).toFixed(2); // tampilkan dalam skala 0–100
     const isRank1  = idx === 0;
 
+    const lokasiHtml = item.lokasi
+      ? `<div class="hasil-lokasi"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.lokasi)}" target="_blank" rel="noreferrer">${item.lokasi}</a></div>`
+      : '';
+
     const div = document.createElement('div');
     div.className = `hasil-item ${isRank1 ? 'rank-1' : 'rank-lain'}`;
     div.innerHTML = `
@@ -416,6 +430,7 @@ function tampilkanHasil(skorSorted) {
       <div class="hasil-nama">
         ${item.nama}
         ${isRank1 ? '<span class="label-terbaik">Terbaik</span>' : ''}
+        ${lokasiHtml}
       </div>
       <div class="bar-container">
         <div class="bar-isi" style="width: ${persen}%"></div>
@@ -480,10 +495,10 @@ function resetSemua() {
     { nama: 'Reputasi Kampus', bobot: 10, tipe: 'benefit' }
   ];
   alternatif = [
-    { nama: 'Univ. Indonesia',   nilai: [85, 15000000, 20000000, 10, 90] },
-    { nama: 'Univ. Gadjah Mada', nilai: [80, 12000000, 18000000, 30, 88] },
-    { nama: 'Beasiswa LPDP',     nilai: [90,         0, 25000000, 50, 95] },
-    { nama: 'Univ. Brawijaya',   nilai: [75, 10000000, 15000000, 20, 80] }
+    { nama: 'Univ. Indonesia',   nilai: [85, 15000000, 20000000, 10, 90], lokasi: 'Jakarta, Indonesia' },
+    { nama: 'Univ. Gadjah Mada', nilai: [80, 12000000, 18000000, 30, 88], lokasi: 'Yogyakarta, Indonesia' },
+    { nama: 'Beasiswa LPDP',     nilai: [90,         0, 25000000, 50, 95], lokasi: 'Jakarta, Indonesia' },
+    { nama: 'Univ. Brawijaya',   nilai: [75, 10000000, 15000000, 20, 80], lokasi: 'Malang, Indonesia' }
   ];
 
   document.getElementById('section-hasil').style.display = 'none';

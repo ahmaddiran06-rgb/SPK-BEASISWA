@@ -572,6 +572,22 @@ body {
   color: #1a1a1a;
 }
 
+.hasil-lokasi {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: #495057;
+  line-height: 1.3;
+}
+
+.hasil-lokasi a {
+  color: #0f6e56;
+  text-decoration: none;
+}
+
+.hasil-lokasi a:hover {
+  text-decoration: underline;
+}
+
 .bar-container {
   flex: 1;
   height: 10px;
