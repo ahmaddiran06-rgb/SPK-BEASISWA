@@ -6,7 +6,7 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #f4f7f5;
-  background-image: linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)), url('background.jpg');
+  background-image: linear-gradient(rgba(255,255,255,0.18), rgba(255,255,255,0.18)), url('background.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
