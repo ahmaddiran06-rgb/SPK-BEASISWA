@@ -111,27 +111,29 @@ function renderAlternatif() {
   tbody.innerHTML = '';
 
   alternatif.forEach((a, i) => {
-    const mapUrl = a.lokasi
-      ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(a.lokasi)}`
+    const query = a.lokasi?.trim() || a.nama?.trim() || '';
+    const mapUrl = query
+      ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`
       : '#';
 
     const tr = document.createElement('tr');
     tr.innerHTML = `
       <td>
         <input type="text" value="${a.nama}"
-          onchange="alternatif[${i}].nama = this.value"
+          oninput="alternatif[${i}].nama = this.value; renderAlternatif()"
+          placeholder="Nama kampus / beasiswa"
           style="min-width:130px" />
       </td>
       <td>
         <input type="text" value="${a.lokasi || ''}"
-          onchange="alternatif[${i}].lokasi = this.value"
+          oninput="alternatif[${i}].lokasi = this.value; renderAlternatif()"
           placeholder="Alamat / kota"
           style="min-width:180px" />
       </td>
       <td>
-        ${a.lokasi
-          ? `<a class="btn btn-sm btn-outline-primary" href="${mapUrl}" target="_blank" rel="noopener">Lihat Peta</a>`
-          : 'Isi lokasi terlebih dahulu'}
+        ${query
+          ? `<a class="btn btn-sm btn-outline-primary" href="${mapUrl}" target="_blank" rel="noopener">📍 Lihat Peta</a>`
+          : 'Isi nama kampus atau lokasi'}
       </td>
       ${kriteria.map((k, j) => `
         <td>
@@ -330,7 +332,7 @@ function setTipe(i, tipe) {
 // ============================================================
 function tambahAlternatif() {
   alternatif.push({
-    nama: 'Pilihan ' + (alternatif.length + 1),
+    nama: '',
     lokasi: '',
     nilai: kriteria.map(() => 0)
   });
