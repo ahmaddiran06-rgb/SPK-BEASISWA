@@ -16,7 +16,19 @@ body {
   align-items: center;
   justify-content: center;
   padding: 2rem 1rem;
-  background: linear-gradient(135deg, #63bdf8 0%, #f4fbff 45%, #fff 100%);
+  background-image: linear-gradient(rgba(255,255,255,0.72), rgba(255,255,255,0.72)), url('background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.login-card {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  border-radius: 32px;
+  border: 1px solid rgba(29, 158, 117, 0.12);
+  box-shadow: 0 24px 60px rgba(47, 96, 143, 0.12);
+  padding: 2.5rem;
 }
 
 .login-screen {
@@ -64,14 +76,6 @@ body {
   margin: 0.2rem 0 0;
   font-size: 0.9rem;
   color: #556a7a;
-}
-
-.login-card {
-  background: #ffffff;
-  border-radius: 32px;
-  border: 1px solid rgba(29, 158, 117, 0.12);
-  box-shadow: 0 24px 60px rgba(47, 96, 143, 0.12);
-  padding: 2.5rem;
 }
 
 .login-card-header h1 {
