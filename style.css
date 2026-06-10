@@ -6,7 +6,7 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #f4f7f5;
-  background-image: linear-gradient(rgba(255,255,255,0.18), rgba(255,255,255,0.18)), url('background.jpg');
+  background-image: linear-gradient(rgba(255,255,255,0.05), rgba(255,255,255,0.05)), url('background.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -22,6 +22,15 @@ body {
   justify-content: center;
   padding: 2rem 1rem;
   background: transparent;
+}
+
+.login-card {
+  background: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(4px);
+  border-radius: 32px;
+  border: 1px solid rgba(29, 158, 117, 0.12);
+  box-shadow: 0 24px 60px rgba(47, 96, 143, 0.12);
+  padding: 2.5rem;
 }
 
 .login-card {
