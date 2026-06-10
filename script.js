@@ -96,22 +96,25 @@ function renderKriteria() {
 // RENDER TABEL ALTERNATIF
 // ============================================================
 function renderAlternatif() {
-  // Header: nama kolom = nama kriteria
   const thead = document.getElementById('thead-alternatif');
   thead.innerHTML = `
     <tr>
       <th style="min-width:140px">Nama Pilihan</th>
       <th style="min-width:180px">Lokasi Sekolah</th>
+      <th style="min-width:120px">Peta</th>
       ${kriteria.map(k => `<th style="min-width:100px">${k.nama}</th>`).join('')}
       <th style="width:60px">Hapus</th>
     </tr>
   `;
 
-  // Body: satu baris per alternatif
   const tbody = document.getElementById('tbody-alternatif');
   tbody.innerHTML = '';
 
   alternatif.forEach((a, i) => {
+    const mapUrl = a.lokasi
+      ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(a.lokasi)}`
+      : '#';
+
     const tr = document.createElement('tr');
     tr.innerHTML = `
       <td>
@@ -124,6 +127,11 @@ function renderAlternatif() {
           onchange="alternatif[${i}].lokasi = this.value"
           placeholder="Alamat / kota"
           style="min-width:180px" />
+      </td>
+      <td>
+        ${a.lokasi
+          ? `<a class="btn btn-sm btn-outline-primary" href="${mapUrl}" target="_blank" rel="noopener">Lihat Peta</a>`
+          : 'Isi lokasi terlebih dahulu'}
       </td>
       ${kriteria.map((k, j) => `
         <td>
