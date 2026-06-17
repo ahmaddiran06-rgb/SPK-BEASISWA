@@ -134,7 +134,7 @@ function renderAlternatif() {
       </td>
       <td>
         ${query
-          ? `<a class="btn btn-sm btn-outline-primary" href="${mapUrl}" target="_blank" rel="noopener">�️ Lihat di Maps</a>`
+          ? `<a class="map-action-btn" href="${mapUrl}" target="_blank" rel="noopener"><span>🗺</span> Maps</a>`
           : 'Isi nama kampus atau lokasi'}
       </td>
       ${kriteria.map((k, j) => `
