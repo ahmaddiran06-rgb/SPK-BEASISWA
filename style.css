@@ -395,24 +395,27 @@ body {
 
 .running-text-banner {
   background: #f4fbf7;
-  border-top: 1px solid #d7ece2;
-  border-bottom: 1px solid #d7ece2;
+  border: 1px solid #d7ece2;
+  border-radius: 999px;
   overflow: hidden;
+  max-width: 920px;
+  margin: -0.8rem auto 1rem;
+  box-shadow: 0 4px 12px rgba(29, 158, 117, 0.08);
 }
 
 .running-text-track {
   display: flex;
   width: max-content;
-  animation: runningText 22s linear infinite;
+  animation: runningText 18s linear infinite;
   will-change: transform;
 }
 
 .running-text-track span {
   white-space: nowrap;
   color: #0f6e56;
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  padding: 0.7rem 1rem;
+  padding: 0.55rem 0.9rem;
 }
 
 @keyframes runningText {
@@ -430,9 +433,15 @@ body {
     width: 100%;
   }
 
+  .running-text-banner {
+    max-width: 100%;
+    margin: -0.4rem 0 1rem;
+    border-radius: 12px;
+  }
+
   .running-text-track span {
-    font-size: 0.8rem;
-    padding: 0.65rem 0.8rem;
+    font-size: 0.75rem;
+    padding: 0.6rem 0.75rem;
   }
 }
 
