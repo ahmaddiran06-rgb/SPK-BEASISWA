@@ -412,9 +412,9 @@ body {
 
 .running-text-track {
   display: flex;
-  width: max-content;
-  animation: runningText 18s linear infinite;
-  will-change: transform;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .running-text-track span {
@@ -423,15 +423,6 @@ body {
   font-size: 0.82rem;
   font-weight: 700;
   padding: 0.58rem 0.95rem;
-}
-
-@keyframes runningText {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
 }
 
 @media (max-width: 720px) {
