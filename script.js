@@ -134,7 +134,7 @@ function renderAlternatif() {
       </td>
       <td>
         ${query
-          ? `<a class="btn btn-sm btn-outline-primary" href="${mapUrl}" target="_blank" rel="noopener">📍 Lihat Peta</a>`
+          ? `<a class="btn btn-sm btn-outline-primary" href="${mapUrl}" target="_blank" rel="noopener">�️ Lihat di Maps</a>`
           : 'Isi nama kampus atau lokasi'}
       </td>
       ${kriteria.map((k, j) => `
@@ -456,7 +456,7 @@ function tampilkanHasil(skorSorted) {
     const isRank1  = idx === 0;
 
     const lokasiHtml = item.lokasi
-      ? `<div class="hasil-lokasi"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.lokasi)}" target="_blank" rel="noreferrer">${item.lokasi}</a></div>`
+      ? `<div class="hasil-lokasi"><a class="map-result-link" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.lokasi)}" target="_blank" rel="noreferrer"><span>🗺</span> ${item.lokasi}</a></div>`
       : '';
 
     const div = document.createElement('div');

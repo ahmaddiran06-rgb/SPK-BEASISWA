@@ -695,7 +695,38 @@ body {
   text-decoration: none;
 }
 
-.hasil-lokasi a:hover {
+.map-action-btn,
+.map-result-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.map-action-btn {
+  background: #eefaf5;
+  color: #0d7c5f;
+  border: 1px solid #cfe9de;
+  border-radius: 999px;
+  padding: 0.42rem 0.78rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.map-action-btn:hover {
+  background: #0d7c5f;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.map-result-link {
+  color: #0f6e56;
+  font-weight: 600;
+}
+
+.map-result-link:hover {
+  color: #0a5d49;
   text-decoration: underline;
 }
 
